@@ -1,4 +1,7 @@
+package sorting
+
 import java.util.Collections.swap
+import java.util.concurrent.ThreadLocalRandom
 
 // 3 sections
 // [start - i - 1] contains numbers less than and equal to pivot
@@ -20,7 +23,7 @@ fun newPartitionIndex(arr: List<Int>, start: Int, end: Int, pIndex: Int): Int {
 
 
 fun main() {
-    val list = listOf(10, 25, 82, 6, 15, 19, 6, 23, 6)
+    val list = listOf(10, 25, 812, 3, 15, 19, 5, 233, 667)
     quickSort(list, 0, list.size - 1)
     println(list)
 }
@@ -39,5 +42,5 @@ fun quickSort(list: List<Int>, start: Int, end: Int) {
  * worst case is N^2
  */
 fun choosePivot(list: List<Int>, start: Int, end: Int): Int {
-    return start
+    return ThreadLocalRandom.current().nextInt(start, end + 1)
 }
